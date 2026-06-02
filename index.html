@@ -1021,11 +1021,15 @@
       philo.style.setProperty('--my', (dy * 30).toFixed(1) + 'px');
     });
   }
+  // threshold 0 = reveal as soon as any part enters; .08 could never be reached
+  // by sections taller than the viewport (e.g. Work on a phone), leaving them hidden.
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.remove('pending'); en.target.classList.add('in'); io.unobserve(en.target);} });
-  },{threshold:.08, rootMargin:'0px 0px -40px 0px'});
+  },{threshold:0, rootMargin:'0px 0px -40px 0px'});
   const vh = window.innerHeight;
-  document.querySelectorAll('section, .case, .svc, .support-card, .lead-card').forEach(el=>{
+  // Only animate the smaller content blocks — never whole <section>s, which can be
+  // far taller than the viewport and would stay stuck at opacity:0 if missed.
+  document.querySelectorAll('.case, .svc, .support-card, .lead-card').forEach(el=>{
     el.classList.add('reveal');
     const top = el.getBoundingClientRect().top;
     if(top > vh * 0.9){ el.classList.add('pending'); io.observe(el); }
