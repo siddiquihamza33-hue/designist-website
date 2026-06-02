@@ -173,7 +173,11 @@
       repeating-linear-gradient(45deg, rgba(0,0,0,.05) 0 1px, transparent 1px 14px);
   }
   .case .thumb > *{position:relative;z-index:1}
-  .case .thumb .label{background:rgba(15,19,32,.88);color:#fff;padding:6px 10px;border-radius:999px}
+  /* Real project image fills the thumb; keep the label pill on top */
+  .case .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .case .thumb:has(img){background:var(--bg-2)}
+  .case .thumb:has(img)::before{background:linear-gradient(to top, rgba(15,19,32,.55), transparent 55%)} /* legibility scrim, replaces texture */
+  .case .thumb .label{background:rgba(15,19,32,.88);color:#fff;padding:6px 10px;border-radius:999px;z-index:2}
   .case .svcs{margin-top:20px;padding-top:16px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)}
   .case .svcs b{color:var(--ink);font-weight:500}
   .case .stat-chip{display:inline-flex;align-items:center;gap:6px;background:var(--bg-2);padding:5px 10px;border-radius:999px;font-size:12px;color:var(--ink);margin-top:12px;width:fit-content}
@@ -477,7 +481,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Safepay — Payments</span></div>
+          <div class="thumb"><img src="assets/work/safepay.png" alt="Safepay" loading="lazy"><span class="label">Safepay — Payments</span></div>
           <div class="tag">Financial Services</div>
           <h4>Safepay</h4>
           <p>Expanded the Safepay brand identity across website and company documents — building consistent communications with capital markets, merchants and customers. The investor deck helped raise a seven-figure seed round, led by Stripe.</p>
@@ -485,7 +489,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">PayFast — Checkout</span></div>
+          <div class="thumb"><img src="assets/work/payfast.png" alt="PayFast" loading="lazy"><span class="label">PayFast — Checkout</span></div>
           <div class="tag">Financial Services</div>
           <h4>PayFast</h4>
           <p>Redesigned the checkout experience and mobile wallet for one of Pakistan’s leading payment gateways — amalgamating global best practice with local market needs and regulatory compliance, resulting in increased conversions.</p>
@@ -493,7 +497,7 @@
         </article>
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">Taraki — Employment</span></div>
+          <div class="thumb"><img src="assets/work/taraki.png" alt="Taraki" loading="lazy"><span class="label">Taraki — Employment</span></div>
           <div class="tag">Early Stage Startup</div>
           <h4>Taraki</h4>
           <p>Partnered with Taraki, an employment platform for blue and grey collar workers, to restructure their job-seeking mobile app and employer portal. Created a full brand ecosystem around the logo.</p>
@@ -502,7 +506,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">LockBx / Wagelyft</span></div>
+          <div class="thumb"><img src="assets/work/lockbx-wagelyft.jpg" alt="LockBx" loading="lazy"><span class="label">LockBx / Wagelyft</span></div>
           <div class="tag">Early Stage Startup</div>
           <h4>LockBx / Wagelyft</h4>
           <p>Devised the UX for the Kenyan Early Wage Access platform — a frictionless employee mobile app, plus employer and admin web portals with oversight for recovery and employee facilitation. Built a design system to guide future products.</p>
@@ -510,7 +514,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">ChargeUp — Expense Cards</span></div>
+          <div class="thumb"><img src="assets/work/chargeup.jpg" alt="ChargeUp" loading="lazy"><span class="label">ChargeUp — Expense Cards</span></div>
           <div class="tag">Early Stage Startup</div>
           <h4>ChargeUp</h4>
           <p>Designed Expense Card Management platforms for businesses and employees. Business portal made assigning limits, managing merchants and issuance convenient; the employee portal gave easy visibility on available limits.</p>
@@ -518,7 +522,7 @@
         </article>
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">Mux — Automation</span></div>
+          <div class="thumb"><img src="assets/work/mux.jpg" alt="Mux" loading="lazy"><span class="label">Mux — Automation</span></div>
           <div class="tag">Early Stage Startup</div>
           <h4>Mux</h4>
           <p>Designed the brand identity and customer experience for Mux’s home and office automation products. Customer App enabled product customisation and visibility on savings; Corporate Web Portal provided centralized control.</p>
@@ -526,7 +530,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Careem — Bike Captains</span></div>
+          <div class="thumb"><img src="assets/work/careem.jpg" alt="Careem" loading="lazy"><span class="label">Careem — Bike Captains</span></div>
           <div class="tag">Early Stage Startup</div>
           <h4>Careem</h4>
           <p>Conducted design research with Bike Captains for a new Careem service — interviews, shadowing and usability testing created a robust understanding of needs and potential digital interface improvements.</p>
@@ -534,7 +538,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">COLABS — Co-working</span></div>
+          <div class="thumb"><img src="assets/work/colabs.jpg" alt="COLABS" loading="lazy"><span class="label">COLABS — Co-working</span></div>
           <div class="tag">Early Stage Startup</div>
           <h4>COLABS</h4>
           <p>Enhanced the brand and user experience for the first COLABS co-working space. A sprint-based research and ideation cycle inspired service recommendations and space design adjustments.</p>
@@ -552,7 +556,7 @@
       <div class="cases">
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">Win by EFU Life</span></div>
+          <div class="thumb"><img src="assets/work/win-by-efu.png" alt="Win by EFU Life" loading="lazy"><span class="label">Win by EFU Life</span></div>
           <div class="tag">Financial Services</div>
           <h4>Win by EFU Life</h4>
           <p>Collaborated with EFU Life Insurance to design a wellness app encouraging healthy lifestyles among policy holders, plus a gamification system where lifestyle informs premium. Integrates real-time health tracking and personalized recommendations.</p>
@@ -560,7 +564,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Meezan Bank — Retail</span></div>
+          <div class="thumb"><img src="assets/work/meezan.png" alt="Meezan Bank" loading="lazy"><span class="label">Meezan Bank — Retail</span></div>
           <div class="tag">Financial Services</div>
           <h4>Meezan Bank — Retail Banking</h4>
           <p>Redesigned the Meezan Retail online banking web portal and mobile application. Reimagined existing user flows for a seamless experience and conceptualized new features to meet evolving banking needs.</p>
@@ -568,7 +572,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">Meezan — Account Opening Study</span></div>
+          <div class="thumb"><img src="assets/work/meezan-strategy.jpg" alt="Meezan" loading="lazy"><span class="label">Meezan — Account Opening Study</span></div>
           <div class="tag">Financial Services</div>
           <h4>Meezan Bank — Account Opening Study</h4>
           <p>Industry-wide Account Opening study across 7 banks and 3 wallets. A combined qualitative and quantitative approach helped explain the “why” behind objective data, informing Meezan’s service and product plans.</p>
@@ -576,7 +580,7 @@
         </article>
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">Meezan — Digital Account Opening</span></div>
+          <div class="thumb"><img src="assets/work/meezan-dao.png" alt="Meezan" loading="lazy"><span class="label">Meezan — Digital Account Opening</span></div>
           <div class="tag">Financial Services</div>
           <h4>Meezan Bank — Digital Account Opening</h4>
           <p>Redesigned the Meezan Digital Account Opening experience, informed by comparison study across EasyPaisa, JazzCash, NayaPay and SadaPay. Usability testing with segmented users guided a brief, simple, fast flow.</p>
@@ -584,7 +588,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Bank Al Habib — RDA</span></div>
+          <div class="thumb"><img src="assets/work/bahl-rda.jpg" alt="Bank Al Habib" loading="lazy"><span class="label">Bank Al Habib — RDA</span></div>
           <div class="tag">Financial Services</div>
           <h4>Bank Al Habib — RDA</h4>
           <p>Evaluated the Roshan Digital Account platforms, process and systems. Proposed UX made form filling less overwhelming and mistake-prone; back-end revisions aimed to digitise processing and use human capital effectively.</p>
@@ -592,7 +596,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">Bank Al Habib — Design System</span></div>
+          <div class="thumb"><img src="assets/work/bahl-dao.png" alt="Bank Al Habib" loading="lazy"><span class="label">Bank Al Habib — Design System</span></div>
           <div class="tag">Financial Services</div>
           <h4>Bank Al Habib — Design System</h4>
           <p>Created a comprehensive design system — UI and content library — to be utilised across multiple digital channels and platforms, enabling faster and more efficient product design with detailed component specifications.</p>
@@ -600,7 +604,7 @@
         </article>
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">HBL — Digital Adoption</span></div>
+          <div class="thumb"><img src="assets/work/hbl.png" alt="HBL" loading="lazy"><span class="label">HBL — Digital Adoption</span></div>
           <div class="tag">Financial Services</div>
           <h4>HBL</h4>
           <p>Analyzed customer behaviour and branch processes to understand OTC preference over digital. Recommended changes contributed to YoY digital transaction increase and migration of <b>2 million users</b> to digital channels.</p>
@@ -616,7 +620,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">xLoop — Bank Alfalah</span></div>
+          <div class="thumb"><img src="assets/work/xloop.jpg" alt="xLoop" loading="lazy"><span class="label">xLoop — Bank Alfalah</span></div>
           <div class="tag">Financial Services</div>
           <h4>xLoop — Bank Alfalah</h4>
           <p>Trained Bank Alfalah IT, Product and Project Management teams in Human-Centered Design. Design Thinking and Introduction to Figma workshops helped teams understand, apply and manage the design process.</p>
@@ -635,7 +639,7 @@
       <div class="cases">
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">Fujifilm Pakistan</span></div>
+          <div class="thumb"><img src="assets/work/fujifilm.jpg" alt="Fujifilm Pakistan" loading="lazy"><span class="label">Fujifilm Pakistan</span></div>
           <div class="tag">Corporate Enterprises</div>
           <h4>Fujifilm Pakistan</h4>
           <p>Studied the Fuji Medical Equipment Troubleshooting Service to identify CRM/ERP needs that could enhance the service experience, support oversight and enable scalability. Proposed structural changes addressed overextended roles.</p>
@@ -643,7 +647,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Engro Fertilizer — Rahbar</span></div>
+          <div class="thumb"><img src="assets/work/engro-fert.jpg" alt="Engro Fertilizer" loading="lazy"><span class="label">Engro Fertilizer — Rahbar</span></div>
           <div class="tag">Corporate Enterprises</div>
           <h4>Engro Fertilizer</h4>
           <p>Evaluated Engro Rahbar, an ERP platform connecting farmers and Engro from sowing to harvest. 380+ screens reviewed with feedback from field officers; recommendations reimagined flows for low-tech-literacy users.</p>
@@ -651,7 +655,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">Wavetec — Lobby Leader</span></div>
+          <div class="thumb"><img src="assets/work/wavetec.jpg" alt="Wavetec" loading="lazy"><span class="label">Wavetec — Lobby Leader</span></div>
           <div class="tag">Corporate Enterprises</div>
           <h4>Wavetec</h4>
           <p>Designed the Lobby Leader platform, a Queue Management System used globally. Tailored screen designs for varied user profiles and interconnected data. A robust Design System adapts to any organisation’s brand in a few clicks.</p>
@@ -659,7 +663,7 @@
         </article>
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">Microaggressions at Work</span></div>
+          <div class="thumb"><img src="assets/work/microaggressions.jpg" alt="Microaggressions at Work" loading="lazy"><span class="label">Microaggressions at Work</span></div>
           <div class="tag">Corporate Enterprises</div>
           <h4>Microaggressions at Work</h4>
           <p>In-depth behavioural study for Pakistan operations of an international organisation. Interviews across Karachi, Islamabad and Peshawar, with spatial and document reviews, revealed root causes and forms of workplace microaggressions.</p>
@@ -667,7 +671,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Clear Water Solutions</span></div>
+          <div class="thumb"><img src="assets/work/clear-water.jpg" alt="Clear Water Solutions" loading="lazy"><span class="label">Clear Water Solutions</span></div>
           <div class="tag">Corporate Enterprises</div>
           <h4>Clear Water Solutions</h4>
           <p>Designed the website for a Dubai-based water treatment solutions provider. Onsite visits and content strategy together demonstrated the business’s technical depth, portfolio and tailor-made approach.</p>
@@ -694,7 +698,7 @@
       <div class="cases">
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">RSwitch — Rwanda</span></div>
+          <div class="thumb"><img src="assets/work/rswitch.png" alt="RSwitch" loading="lazy"><span class="label">RSwitch — Rwanda</span></div>
           <div class="tag">Implementation Partner</div>
           <h4>RSwitch</h4>
           <p>Designed UI/UX standards for P2P and P2M transactions for the National Payment Switch in Rwanda, to be implemented by Banks, SACCOs and MFIs across the country — giving FIs a competitive advantage through easy customer adoption.</p>
@@ -702,7 +706,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Techlogix Payday Loan</span></div>
+          <div class="thumb"><img src="assets/work/techlogix.png" alt="Techlogix Payday Loan" loading="lazy"><span class="label">Techlogix Payday Loan</span></div>
           <div class="tag">Implementation Partner</div>
           <h4>Techlogix Payday Loan</h4>
           <p>Assessed customer perception and user friendliness of Techlogix PayDay Loan using big data and human-centered research. Product strategy revisions addressed marketing and communication; revised UX copy simplified information.</p>
@@ -710,7 +714,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">AdalFi Credit Card</span></div>
+          <div class="thumb"><img src="assets/work/adalfi.jpg" alt="AdalFi Credit Card" loading="lazy"><span class="label">AdalFi Credit Card</span></div>
           <div class="tag">Implementation Partner</div>
           <h4>AdalFi Credit Card</h4>
           <p>Redesigned a Credit Card issuance application for multiple banks. New screens streamlined decision-making and input clarity. A Design System enabled Techlogix to quickly customize the product for each bank's brand identity.</p>
@@ -718,7 +722,7 @@
         </article>
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">NDC Tech — Temenos</span></div>
+          <div class="thumb"><img src="assets/work/ndc-tech.png" alt="NDC Tech" loading="lazy"><span class="label">NDC Tech — Temenos</span></div>
           <div class="tag">Implementation Partner</div>
           <h4>NDC Tech</h4>
           <p>Partnered with NDC Tech (Systems Ltd) on UI/UX and user flows for Temenos-powered banking applications, deployed across the MENAP region including Khushhali Microfinance Bank, Bank of Senegal and Elaf Islamic Bank.</p>
@@ -726,7 +730,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Bank of Punjab — BOP</span></div>
+          <div class="thumb"><img src="assets/work/ndc-bop.jpg" alt="Bank of Punjab" loading="lazy"><span class="label">Bank of Punjab — BOP</span></div>
           <div class="tag">Implementation Partner</div>
           <h4>NDC Tech — Bank of Punjab</h4>
           <p>Redesigned the digital banking channels for BOP’s Temenos-powered Retail platforms. Utilised existing BOP guidelines to create a clean, modern UI representative of the forward-thinking vision of the digital product teams.</p>
@@ -734,7 +738,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">Digital Nation Pakistan</span></div>
+          <div class="thumb"><img src="assets/work/digital-nation.jpg" alt="Digital Nation Pakistan" loading="lazy"><span class="label">Digital Nation Pakistan</span></div>
           <div class="tag">Implementation Partner</div>
           <h4>Digital Nation Pakistan</h4>
           <p>Designed and facilitated workshops to generate use cases for a World Bank led national initiative advised by Entropy-X. Practice-based format taught stakeholders to implement a Citizen-Centric approach using HCD methodologies.</p>
@@ -753,7 +757,7 @@
       <div class="cases">
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">Pakistan Sign Language</span></div>
+          <div class="thumb"><img src="assets/work/psl.png" alt="Pakistan Sign Language" loading="lazy"><span class="label">Pakistan Sign Language</span></div>
           <div class="tag">Education</div>
           <h4>Pakistan Sign Language</h4>
           <p>Collaborated with FESF to design a digital platform for learning and teaching Pakistan Sign Language. Field research informed flows that reflected learning needs and teaching methods.</p>
@@ -762,7 +766,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">Sabaq — Tablets for Schools</span></div>
+          <div class="thumb"><img src="assets/work/sabaq.png" alt="Sabaq" loading="lazy"><span class="label">Sabaq — Tablets for Schools</span></div>
           <div class="tag">Education</div>
           <h4>Sabaq</h4>
           <p>Redesigned the UX for Sabaq tablets — a digital independent study platform covering KG–Class 5 curriculum. Field research in schools revealed variance across institutes, informing a tailored, easier, engaging interface.</p>
@@ -771,7 +775,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">Habib Education Trust</span></div>
+          <div class="thumb"><img src="assets/work/habib-education.jpg" alt="Habib Education Trust" loading="lazy"><span class="label">Habib Education Trust</span></div>
           <div class="tag">Education</div>
           <h4>Habib Education Trust</h4>
           <p>Designed the HET website plus sites for Habib Public School and Habib Girls’ School. Strategy focused on the schools’ legacy of excellence, facilities, academic strengths and extracurriculars — while engaging donors and alumni.</p>
@@ -779,7 +783,7 @@
         </article>
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">Project Erase — Polio</span></div>
+          <div class="thumb"><img src="assets/work/project-erase.png" alt="Project Erase" loading="lazy"><span class="label">Project Erase — Polio</span></div>
           <div class="tag">Public Health</div>
           <h4>Project Erase</h4>
           <p>Redesigned the Polio Campaign Tracking App and Control Center Dashboard to enable Polio Eradication efforts across Pakistan. User-friendly design and custom training digitised previous manual tracking.</p>
@@ -795,7 +799,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">Lost Cities of Indus Delta</span></div>
+          <div class="thumb"><img src="assets/work/indus-delta.jpg" alt="Lost Cities of Indus Delta" loading="lazy"><span class="label">Lost Cities of Indus Delta</span></div>
           <div class="tag">Social Impact</div>
           <h4>Lost Cities of Indus Delta</h4>
           <p>Designed web and VR platforms for a heritage preservation project by MaritimEA Research. Custom illustrations, content strategy and UX delivered a lived experience where a digital visit could exceed the physical one.</p>
@@ -814,7 +818,7 @@
       <div class="cases">
 
         <article class="case" style="--hue:#49CAE9">
-          <div class="thumb"><span class="label">AKUH — Pediatric Clinics</span></div>
+          <div class="thumb"><img src="assets/work/akuh-peads.png" alt="AKUH" loading="lazy"><span class="label">AKUH — Pediatric Clinics</span></div>
           <div class="tag">Healthcare</div>
           <h4>AKUH — Pediatric Clinics</h4>
           <p>Re-imagined the Pediatric Clinic to deliver a humane experience alongside quality medical care. Looked holistically at patients, parents, doctors and support staff — proposing space design and procedural changes.</p>
@@ -822,7 +826,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">RemoteCare — Home X-Ray</span></div>
+          <div class="thumb"><img src="assets/work/remotecare.png" alt="RemoteCare" loading="lazy"><span class="label">RemoteCare — Home X-Ray</span></div>
           <div class="tag">Healthcare</div>
           <h4>RemoteCare</h4>
           <p>Partnered with RemoteCare to launch a patient-centric Home X-Ray service. End-to-end service design covered branding, communications, SOPs, system designs and trainings.</p>
@@ -831,7 +835,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">Routine Immunisation</span></div>
+          <div class="thumb"><img src="assets/work/routine-immunization.png" alt="Routine Immunisation" loading="lazy"><span class="label">Routine Immunisation</span></div>
           <div class="tag">Healthcare</div>
           <h4>Routine Immunisation</h4>
           <p>Collaborated with Common Thread on workshops for strategies to reach under-immunised and zero-dose children. Enabled LHWs, vaccinators, EPI, UNICEF and WHO to collaborate and create tailored strategies.</p>
@@ -848,7 +852,7 @@
         </article>
 
         <article class="case" style="--hue:#FF9052">
-          <div class="thumb"><span class="label">JazzCash — Workshops</span></div>
+          <div class="thumb"><img src="assets/work/jazzcash-training.jpg" alt="JazzCash" loading="lazy"><span class="label">JazzCash — Workshops</span></div>
           <div class="tag">Corporate Enterprises</div>
           <h4>JazzCash</h4>
           <p>Delivered a series of Design workshops for the JazzCash Product team — introducing HCD through Design Thinking, Service Design and UX Design. Participants expanded their product development toolkit and cross-team collaboration.</p>
@@ -856,7 +860,7 @@
         </article>
 
         <article class="case" style="--hue:#BCE963">
-          <div class="thumb"><span class="label">Unilever — Workshops</span></div>
+          <div class="thumb"><img src="assets/work/unilever.png" alt="Unilever" loading="lazy"><span class="label">Unilever — Workshops</span></div>
           <div class="tag">Corporate Enterprises</div>
           <h4>Unilever</h4>
           <p>Delivered a Design Thinking workshop for Unilever Marketing and HR teams. A practice-based training introduced HCD principles, adding value to workforce skills and culture through repeat engagement.</p>
