@@ -196,8 +196,13 @@
 
   /* Partners */
   .partners{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-  .partner{background:var(--bg);padding:28px 16px;display:flex;align-items:center;justify-content:center;text-align:center;min-height:90px;font-family:'DM Sans',system-ui,sans-serif;font-size:20px;letter-spacing:-.01em;color:var(--ink-2);transition:all .2s}
+  .partner{background:var(--bg);padding:28px 16px;display:flex;align-items:center;justify-content:center;text-align:center;min-height:110px;font-family:'DM Sans',system-ui,sans-serif;font-size:20px;letter-spacing:-.01em;color:var(--ink-2);transition:all .2s}
   .partner:hover{background:var(--card);color:var(--ink)}
+  /* Logos: uniform white marks on the dark cells, real brand colours on hover */
+  .partner img{max-height:48px;max-width:80%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;transition:opacity .25s, filter .25s}
+  .partner:hover img{filter:none;opacity:1}
+  .partner .partner-text{opacity:.6;transition:opacity .25s}
+  .partner:hover .partner-text{opacity:1;color:var(--ink)}
   @media (max-width:1080px){.partners{grid-template-columns:repeat(4,1fr)}}
 
   /* Contact */
@@ -286,7 +291,8 @@
     .lead-card p{font-size:15px}
 
     .partners{grid-template-columns:repeat(2,1fr)}
-    .partner{padding:20px 12px;min-height:72px;font-size:15px}
+    .partner{padding:24px 12px;min-height:88px;font-size:15px}
+    .partner img{max-height:40px}
 
     .contact{padding:80px 0 56px}
     .contact-inner{gap:32px}
@@ -903,30 +909,30 @@
       <h2>We’ve partnered with the best, to impact <em>more than 4m people.</em></h2>
     </div>
     <div class="partners">
-      <div class="partner">Abhi</div>
-      <div class="partner">Safepay</div>
-      <div class="partner">PayFast</div>
-      <div class="partner">Meezan Bank</div>
-      <div class="partner">Bank Al Habib</div>
-      <div class="partner">HBL</div>
-      <div class="partner">Bank Alfalah</div>
-      <div class="partner">EFU Life</div>
-      <div class="partner">Careem</div>
-      <div class="partner">JazzCash</div>
-      <div class="partner">Unilever</div>
-      <div class="partner">Fujifilm</div>
-      <div class="partner">Engro</div>
-      <div class="partner">Wavetec</div>
-      <div class="partner">NDC Tech</div>
-      <div class="partner">Techlogix</div>
-      <div class="partner">AKUH</div>
-      <div class="partner">Husaini</div>
-      <div class="partner">RemoteCare</div>
-      <div class="partner">FESF</div>
-      <div class="partner">Sabaq</div>
-      <div class="partner">Habib Education Trust</div>
-      <div class="partner">Bank of Punjab</div>
-      <div class="partner">COLABS</div>
+      <div class="partner"><img src="assets/partners/abhi.png" alt="Abhi" title="Abhi" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/safepay.png" alt="Safepay" title="Safepay" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/payfast.png" alt="PayFast" title="PayFast" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/meezan.png" alt="Meezan Bank" title="Meezan Bank" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/bank-al-habib.png" alt="Bank Al Habib" title="Bank Al Habib" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/hbl.png" alt="HBL" title="HBL" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/bank-alfalah.png" alt="Bank Alfalah" title="Bank Alfalah" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/efu-life.png" alt="EFU Life" title="EFU Life" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/careem.png" alt="Careem" title="Careem" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/jazzcash.png" alt="JazzCash" title="JazzCash" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/unilever.png" alt="Unilever" title="Unilever" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/fujifilm.png" alt="Fujifilm" title="Fujifilm" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/engro.png" alt="Engro" title="Engro" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/wavetec.png" alt="Wavetec" title="Wavetec" loading="lazy"></div>
+      <div class="partner"><span class="partner-text">NDC Tech</span></div>
+      <div class="partner"><img src="assets/partners/techlogix.png" alt="Techlogix" title="Techlogix" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/akuh.png" alt="AKUH" title="AKUH" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/husaini.png" alt="Husaini" title="Husaini" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/remotecare.png" alt="RemoteCare" title="RemoteCare" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/fesf.png" alt="FESF" title="FESF" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/sabaq.png" alt="Sabaq" title="Sabaq" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/habib-education-trust.png" alt="Habib Education Trust" title="Habib Education Trust" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/bank-of-punjab.png" alt="Bank of Punjab" title="Bank of Punjab" loading="lazy"></div>
+      <div class="partner"><img src="assets/partners/colabs.png" alt="COLABS" title="COLABS" loading="lazy"></div>
     </div>
   </div>
 </section>
