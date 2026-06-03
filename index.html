@@ -203,8 +203,8 @@
   .partners{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
   .partner{background:var(--bg);padding:28px 16px;display:flex;align-items:center;justify-content:center;text-align:center;min-height:110px;font-family:'DM Sans',system-ui,sans-serif;font-size:20px;letter-spacing:-.01em;color:var(--ink-2);transition:all .2s;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
   .partner:hover{background:var(--card);color:var(--ink)}
-  /* Logos: uniform white marks on the dark cells, real brand colours on hover */
-  .partner img{max-height:48px;max-width:80%;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;transition:opacity .25s, filter .25s}
+  /* Logos: monochrome (greyscale keeps each mark's internal detail) -> full colour on hover */
+  .partner img{max-height:48px;max-width:80%;width:auto;height:auto;object-fit:contain;filter:grayscale(1) brightness(1.7);opacity:.95;transition:opacity .25s, filter .25s}
   .partner:hover img{filter:none;opacity:1}
   @media (max-width:1080px){.partners{grid-template-columns:repeat(4,1fr)}}
 
