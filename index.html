@@ -206,6 +206,17 @@
   .partner:hover{background:var(--card);color:var(--ink)}
   /* Logos: monochrome (greyscale keeps each mark's internal detail) -> full colour on hover */
   .partner img{max-height:48px;max-width:80%;width:auto;height:auto;object-fit:contain;filter:grayscale(1) brightness(1.7);opacity:.95;transition:opacity .25s, filter .25s}
+  /* Dark / low-contrast logos (dark text on the dark cells): render solid white */
+  .partner img[src*="colabs.png"],
+  .partner img[src*="fujifilm.png"],
+  .partner img[src*="payfast.png"],
+  .partner img[src*="careem.png"],
+  .partner img[src*="unilever.png"],
+  .partner img[src*="safepay.png"],
+  .partner img[src*="jazzcash.png"],
+  .partner img[src*="engro.png"],
+  .partner img[src*="fesf.png"],
+  .partner img[src*="bank-of-punjab.png"]{filter:brightness(0) invert(1)}
   .partner:hover img{filter:none;opacity:1}
   @media (max-width:1080px){.partners{grid-template-columns:repeat(4,1fr)}}
 
