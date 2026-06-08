@@ -993,6 +993,18 @@
     });
   }
 
+  // Contact buttons: open Gmail compose in a new tab (works without a desktop
+  // mail app). Falls back to the mailto: href if the popup is blocked.
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const email = a.getAttribute('href').replace(/^mailto:/,'').split('?')[0];
+      const url = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(email)
+        + '&su=' + encodeURIComponent("Let's work together");
+      const win = window.open(url, '_blank', 'noopener,noreferrer');
+      if(win){ e.preventDefault(); } // popup opened -> skip mailto; else let mailto run
+    });
+  });
+
   // smooth scroll — offset by the actual sticky-header height
   const navEl = document.querySelector('header.nav');
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
