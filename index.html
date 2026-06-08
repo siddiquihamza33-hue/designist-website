@@ -144,7 +144,7 @@
   .svc p{color:var(--ink-2);margin:0 0 22px;max-width:40ch}
   .svc ul{margin:0;padding:0;list-style:none;columns:2;column-gap:24px;font-size:14px;color:var(--muted)}
   .svc ul li{padding:6px 0;break-inside:avoid;border-top:1px dashed var(--rule)}
-  .svc ul li:first-child,.svc ul li:nth-child(2){border-top:0}
+  .svc ul li:first-child{border-top:0}
   @media (max-width:767.98px){.services{grid-template-columns:1fr}.svc ul{columns:1}}
 
   /* Work */
@@ -204,20 +204,11 @@
   .partners{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
   .partner{background:var(--bg);padding:28px 16px;display:flex;align-items:center;justify-content:center;text-align:center;min-height:110px;font-family:'DM Sans',system-ui,sans-serif;font-size:20px;letter-spacing:-.01em;color:var(--ink-2);transition:all .2s;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
   .partner:hover{background:var(--card);color:var(--ink)}
-  /* Logos: monochrome (greyscale keeps each mark's internal detail) -> full colour on hover */
-  .partner img{max-height:48px;max-width:80%;width:auto;height:auto;object-fit:contain;filter:grayscale(1) brightness(1.7);opacity:.95;transition:opacity .25s, filter .25s}
-  /* Dark / low-contrast logos (dark text on the dark cells): render solid white */
-  .partner img[src*="colabs.png"],
-  .partner img[src*="fujifilm.png"],
-  .partner img[src*="payfast.png"],
-  .partner img[src*="careem.png"],
-  .partner img[src*="unilever.png"],
-  .partner img[src*="safepay.png"],
-  .partner img[src*="jazzcash.png"],
-  .partner img[src*="engro.png"],
-  .partner img[src*="fesf.png"],
-  .partner img[src*="bank-of-punjab.png"]{filter:brightness(0) invert(1)}
-  .partner:hover img{filter:none;opacity:1}
+  /* Logos: pre-made black & white at rest, full colour on hover */
+  .partner img{max-height:48px;max-width:80%;width:auto;height:auto;object-fit:contain}
+  .partner .cl{display:none}
+  .partner:hover .bw{display:none}
+  .partner:hover .cl{display:block}
   @media (max-width:1080px){.partners{grid-template-columns:repeat(4,1fr)}}
 
   /* Contact */
@@ -257,6 +248,26 @@
     .case .thumb{max-height:440px;margin:-24px -24px 20px}
     .lead-card{padding:32px}
     .sector-block{margin-bottom:64px}
+  }
+
+  /* Tablet: a lone trailing card (alone in its 2-up row) becomes horizontal:
+     image on the left, text on the right, so it doesn't sit as one giant block. */
+  @media (min-width:768px) and (max-width:1080px){
+    .case:last-child:nth-child(odd){
+      display:grid;
+      grid-template-columns:42% 1fr;
+      column-gap:28px;
+      align-content:center;
+    }
+    .case:last-child:nth-child(odd) > *{grid-column:2}
+    .case:last-child:nth-child(odd) .thumb{
+      grid-column:1; grid-row:1 / span 20;
+      margin:-24px 0 -24px -24px;
+      aspect-ratio:auto; max-height:none; height:auto; min-height:100%;
+      border-bottom:0; border-right:1px solid var(--rule);
+    }
+    .case:last-child:nth-child(odd) p{margin:0 0 16px}
+    .case:last-child:nth-child(odd) .svcs{margin-top:0}
   }
 
   /* ---------- Mobile ---------- */
@@ -903,29 +914,29 @@
       <h2>We’ve partnered with the best, to impact <em>more than 4m people.</em></h2>
     </div>
     <div class="partners">
-      <div class="partner"><img src="assets/partners/abhi.png" alt="Abhi" title="Abhi" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/safepay.png" alt="Safepay" title="Safepay" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/payfast.png" alt="PayFast" title="PayFast" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/meezan.png" alt="Meezan Bank" title="Meezan Bank" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/bank-al-habib.png" alt="Bank Al Habib" title="Bank Al Habib" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/hbl.png" alt="HBL" title="HBL" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/bank-alfalah.png" alt="Bank Alfalah" title="Bank Alfalah" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/efu-life.png" alt="EFU Life" title="EFU Life" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/careem.png" alt="Careem" title="Careem" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/jazzcash.png" alt="JazzCash" title="JazzCash" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/unilever.png" alt="Unilever" title="Unilever" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/fujifilm.png" alt="Fujifilm" title="Fujifilm" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/engro.png" alt="Engro" title="Engro" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/wavetec.png" alt="Wavetec" title="Wavetec" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/techlogix.png" alt="Techlogix" title="Techlogix" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/akuh.png" alt="AKUH" title="AKUH" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/husaini.png" alt="Husaini" title="Husaini" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/remotecare.png" alt="RemoteCare" title="RemoteCare" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/fesf.png" alt="FESF" title="FESF" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/sabaq.png" alt="Sabaq" title="Sabaq" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/habib-education-trust.png" alt="Habib Education Trust" title="Habib Education Trust" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/bank-of-punjab.png" alt="Bank of Punjab" title="Bank of Punjab" loading="lazy"></div>
-      <div class="partner"><img src="assets/partners/colabs.png" alt="COLABS" title="COLABS" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/abhi.png" alt="Abhi" title="Abhi" loading="lazy"><img class="cl" src="assets/partners/abhi-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/safepay.png" alt="Safepay" title="Safepay" loading="lazy"><img class="cl" src="assets/partners/safepay-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/payfast.png" alt="PayFast" title="PayFast" loading="lazy"><img class="cl" src="assets/partners/payfast-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/meezan.png" alt="Meezan Bank" title="Meezan Bank" loading="lazy"><img class="cl" src="assets/partners/meezan-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/bank-al-habib.png" alt="Bank Al Habib" title="Bank Al Habib" loading="lazy"><img class="cl" src="assets/partners/bank-al-habib-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/hbl.png" alt="HBL" title="HBL" loading="lazy"><img class="cl" src="assets/partners/hbl-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/bank-alfalah.png" alt="Bank Alfalah" title="Bank Alfalah" loading="lazy"><img class="cl" src="assets/partners/bank-alfalah-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/efu-life.png" alt="EFU Life" title="EFU Life" loading="lazy"><img class="cl" src="assets/partners/efu-life-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/careem.png" alt="Careem" title="Careem" loading="lazy"><img class="cl" src="assets/partners/careem-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/jazzcash.png" alt="JazzCash" title="JazzCash" loading="lazy"><img class="cl" src="assets/partners/jazzcash-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/unilever.png" alt="Unilever" title="Unilever" loading="lazy"><img class="cl" src="assets/partners/unilever-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/fujifilm.png" alt="Fujifilm" title="Fujifilm" loading="lazy"><img class="cl" src="assets/partners/fujifilm-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/engro.png" alt="Engro" title="Engro" loading="lazy"><img class="cl" src="assets/partners/engro-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/wavetec.png" alt="Wavetec" title="Wavetec" loading="lazy"><img class="cl" src="assets/partners/wavetec-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/techlogix.png" alt="Techlogix" title="Techlogix" loading="lazy"><img class="cl" src="assets/partners/techlogix-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/akuh.png" alt="AKUH" title="AKUH" loading="lazy"><img class="cl" src="assets/partners/akuh-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/husaini.png" alt="Husaini" title="Husaini" loading="lazy"><img class="cl" src="assets/partners/husaini-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/remotecare.png" alt="RemoteCare" title="RemoteCare" loading="lazy"><img class="cl" src="assets/partners/remotecare-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/fesf.png" alt="FESF" title="FESF" loading="lazy"><img class="cl" src="assets/partners/fesf-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/sabaq.png" alt="Sabaq" title="Sabaq" loading="lazy"><img class="cl" src="assets/partners/sabaq-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/habib-education-trust.png" alt="Habib Education Trust" title="Habib Education Trust" loading="lazy"><img class="cl" src="assets/partners/habib-education-trust-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/bank-of-punjab.png" alt="Bank of Punjab" title="Bank of Punjab" loading="lazy"><img class="cl" src="assets/partners/bank-of-punjab-color.png" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="partner"><img class="bw" src="assets/partners/colabs.png" alt="COLABS" title="COLABS" loading="lazy"><img class="cl" src="assets/partners/colabs-color.png" alt="" aria-hidden="true" loading="lazy"></div>
     </div>
   </div>
 </section>
